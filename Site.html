@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OncoNova Institute | Centro Médico de Oncologia & Pesquisa</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Cores Estilo Hospitalar Premium (Einstein + Chic) */
+            --navy-deep: #001A38;
+            --blue-einstein: #002D62;
+            --blue-accent: #0072CE;
+            --cyan-glow: #00A3E0;
+            --bg-light: #F4F7F9;
+            --card-bg: #FFFFFF;
+            --text-main: #1C2B36;
+            --text-muted: #536273;
+            --border-color: #E1E8ED;
+            --shadow-chic: 0 12px 30px -10px rgba(0, 45, 98, 0.08);
+            --shadow-hover: 0 20px 40px -15px rgba(0, 114, 206, 0.18);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* 1. Barra Superior Institucional */
+        .top-bar {
+            background-color: var(--navy-deep);
+            color: rgba(255, 255, 255, 0.85);
+            padding: 10px 6%;
+            font-size: 0.82rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .top-bar-info {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-bar-links a {
+            color: #B0C4DE;
+            text-decoration: none;
+            margin-left: 18px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .top-bar-links a:hover {
+            color: #FFFFFF;
+        }
+
+        /* 2. Menu de Navegação */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 6%;
+            max-width: 1350px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--blue-accent), var(--blue-einstein));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-weight: 800;
+            font-size: 1.35rem;
+            box-shadow: 0 4px 12px rgba(0, 114, 206, 0.3);
+        }
+
+        .logo-text {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--blue-einstein);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--cyan-glow);
+            font-weight: 400;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.92rem;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--blue-accent);
+        }
+
+        .btn-portal {
+            background: linear-gradient(135deg, var(--blue-accent), var(--blue-einstein));
+            color: #FFFFFF;
+            padding: 11px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.88rem;
+            box-shadow: 0 4px 15px rgba(0, 114, 206, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .btn-portal:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 114, 206, 0.4);
+        }
+
+        /* 3. Hero Banner Imersivo */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 26, 56, 0.92) 0%, rgba(0, 45, 98, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1600&q=80') center/cover;
+            color: #FFFFFF;
+            padding: 100px 6% 140px 6%;
+        }
+
+        .hero-container {
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(0, 163, 224, 0.15);
+            color: var(--cyan-glow);
+            border: 1px solid rgba(0, 163, 224, 0.3);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            max-width: 850px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #D0E1F9;
+            max-width: 700px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* 4. Cards Flutuantes de Acesso Rápido */
+        .quick-access-container {
+            max-width: 1250px;
+            margin: -70px auto 70px auto;
+            padding: 0 6%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .quick-access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+        }
+
+        .access-card {
+            background: var(--card-bg);
+            padding: 30px 25px;
+            border-radius: 14px;
+            box-shadow: var(--shadow-chic);
+            border: 1px solid var(--border-color);
+            border-bottom: 4px solid var(--blue-accent);
+            transition: all 0.3s ease;
+        }
+
+        .access-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .access-card h3 {
+            color: var(--blue-einstein);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .access-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* 5. Seção Sobre Nós */
+        .section-padding {
+            padding: 80px 6%;
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--blue-einstein);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            color: var(--blue-accent);
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+            color: var(--text-main);
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .mission-badge {
+            background-color: #EEF6FC;
+            border-left: 4px solid var(--blue-accent);
+            padding: 22px 25px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 25px;
+        }
+
+        .mission-badge h4 {
+            color: var(--blue-einstein);
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .mission-badge p {
+            color: var(--navy-deep);
+            font-size: 1.05rem;
+            font-weight: 600;
+            font-style: italic;
+            margin: 0;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 26, 56, 0.12);
+        }
+
+        /* 6. Faixa de Estatísticas e Grandeza */
+        .stats-banner {
+            background: var(--navy-deep);
+            color: #FFFFFF;
+            padding: 60px 6%;
+            margin: 30px 0;
+        }
+
+        .stats-grid {
+            max-width: 1250px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--cyan-glow);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #B0C4DE;
+        }
+
+        /* 7. Grid de Valores */
+        .values-bg {
+            background-color: #FFFFFF;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .value-card {
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 12px;
+            background: var(--bg-light);
+            box-shadow: var(--shadow-chic);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue-accent);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .value-card h4 {
+            color: var(--blue-einstein);
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .value-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* 8. Rodapé Completo */
+        footer {
+            background-color: var(--navy-deep);
+            color: #FFFFFF;
+            padding: 70px 6% 30px 6%;
+        }
+
+        .footer-grid {
+            max-width: 1250px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: #B0C4DE;
+            margin-top: 15px;
+            max-width: 320px;
+        }
+
+        .footer-col h4 {
+            color: var(--cyan-glow);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #B0C4DE;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #FFFFFF;
+        }
+
+        .footer-bottom {
+            max-width: 1250px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #8A9EA7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="top-bar-info">
+            <span>🌍 Referência Global em Oncologia</span>
+            <span>📍 Complexos Hospitalares: São Paulo | Brasília | Rio de Janeiro</span>
+            <span>📞 Central Internacional: 0800 770 0000</span>
+        </div>
+        <div class="top-bar-links">
+            <a href="#">Portal do Paciente</a>
+            <a href="#">Área Médica</a>
+            <a href="#">Imprensa</a>
+            <a href="#">Trabalhe Conosco</a>
+        </div>
+    </div>
+
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo">
+                <div class="logo-icon">O</div>
+                <div class="logo-text">OncoNova <span>Institute</span></div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#sobre">O Hospital</a></li>
+                <li><a href="#diferenciais">Inovação & Estrutura</a></li>
+                <li><a href="#valores">Valores</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <a href="#contato" class="btn-portal">Agendar Consulta</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <span class="hero-tag">Medicina de Precisão & Oncologia</span>
+            <h1>Reconhecido internacionalmente pela excelência, tecnologia e inovação médica.</h1>
+            <p>Com um dos maiores e mais modernos complexos hospitalares do planeta, transformamos pesquisas genômicas de ponta em cura e esperança de vida.</p>
+        </div>
+    </section>
+
+    <div class="quick-access-container">
+        <div class="quick-access-grid">
+            <div class="access-card">
+                <span class="card-icon">👨‍⚕️</span>
+                <h3>Corpo Clínico Renomado</h3>
+                <p>Especialistas e cientistas premiados internacionalmente em medicina de precisão.</p>
+            </div>
+            <div class="access-card">
+                <span class="card-icon">🧬</span>
+                <h3>Centro de Pesquisa Genômica</h3>
+                <p>O maior laboratório de ensaios clínicos e terapias avançadas da América Latina.</p>
+            </div>
+            <div class="access-card">
+                <span class="card-icon">🏥</span>
+                <h3>Estrutura Monumental</h3>
+                <p>Instalações hospitalares de última geração com tecnologia cirúrgica robótica.</p>
+            </div>
+            <div class="access-card">
+                <span class="card-icon">🌐</span>
+                <h3>Atendimento Internacional</h3>
+                <p>Acolhimento de pacientes de diversos países com suporte multidisciplinar completo.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="section-padding" id="sobre">
+        <div class="about-grid">
+            <div class="about-text">
+                <span class="section-subtitle">Liderança Global & Excelência Hospitalar</span>
+                <h2 class="section-title">Centro Médico de Referência em Oncologia</h2>
+                <p>
+                    O <strong>OncoNova Institute</strong> é consagrado mundialmente como uma importante instituição hospitalar e de pesquisa científica no combate ao câncer. Nossa infraestrutura monumental combina unidades de alta complexidade com centros avançados de investigação genômica e robótica.
+                </p>
+                <p>
+                    Reconhecido internacionalmente por publicar estudos revolucionários e desenvolver terapias imunológicas personalizadas, o instituto atrai pacientes e médicos de diversos países, sendo um símbolo de inovação, segurança e medicina humanizada.
+                </p>
+                <div class="mission-badge">
+                    <h4>Nossa Missão</h4>
+                    <p>“Salvar vidas e liderar a oncologia por meio da pesquisa científica de vanguarda, da infraestrutura de ponta e de um cuidado humano inigualável.”</p>
+                </div>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80" alt="Complexo de Pesquisa Oncológica" class="about-img">
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-banner">
+        <div class="stats-grid">
+            <div>
+                <div class="stat-number">Referência</div>
+                <div class="stat-label">Em Oncologia de Alta Complexidade</div>
+            </div>
+            <div>
+                <div class="stat-number">+50.000m²</div>
+                <div class="stat-label">Área Hospitalar e de Pesquisa</div>
+            </div>
+            <div>
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Países Atendidos</div>
+            </div>
+            <div>
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Acreditação Internacional (JCI)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="values-bg" id="valores">
+        <section class="section-padding">
+            <span class="section-subtitle" style="text-align: center;">Nossos Princípios</span>
+            <h2 class="section-title" style="text-align: center; margin-bottom: 40px;">Padrões de Excelência Mundial</h2>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <h4>💙 Humanização de Classe Mundial</h4>
+                    <p>Atendimento centrado no paciente, oferecendo acolhimento, empatia e conforto em instalações hospitalares de alto padrão.</p>
+                </div>
+                <div class="value-card">
+                    <h4>⭐ Excelência Clínica Inquestionável</h4>
+                    <p>Liderança na aplicação dos protocolos médicos mais rigorosos e seguros do mundo.</p>
+                </div>
+                <div class="value-card">
+                    <h4>🔬 Vanguarda Científica</h4>
+                    <p>Pioneirismo no desenvolvimento de novas vacinas, terapias genéticas e tratamentos de precisão.</p>
+                </div>
+                <div class="value-card">
+                    <h4>🛡️ Ética e Sigilo Absoluto</h4>
+                    <p>Rigoroso compromisso com a privacidade dos pacientes e com a conduta científica responsável.</p>
+                </div>
+                <div class="value-card">
+                    <h4>🤝 Redes Globais de Pesquisa</h4>
+                    <p>Cooperação contínua com os maiores centros de medicina e universidades dos Estados Unidos e Europa.</p>
+                </div>
+                <div class="value-card">
+                    <h4>🌱 Dedicação Total à Vida</h4>
+                    <p>Compromisso irrestrito em transformar casos complexos em histórias de vitória e superação.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer id="contato">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">O</div>
+                    <div class="logo-text" style="color: #FFFFFF;">OncoNova <span style="color: var(--cyan-glow);">Institute</span></div>
+                </a>
+                <p>Um dos mais avançados complexos hospitalares e de pesquisa em oncologia do mundo.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Institucional</h4>
+                <ul>
+                    <li><a href="#sobre">O Hospital</a></li>
+                    <li><a href="#">Corpo Clínico Internacional</a></li>
+                    <li><a href="#">Centro de Pesquisa Genômica</a></li>
+                    <li><a href="#">Prêmios e Acreditações</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Atendimento</h4>
+                <ul>
+                    <li><a href="#">Agendamento Internacional</a></li>
+                    <li><a href="#">Exames e Diagnóstico</a></li>
+                    <li><a href="#">Acolhimento ao Paciente</a></li>
+                    <li><a href="#">Segunda Opinião Médica</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="#">Central: 0800 770 0000</a></li>
+                    <li><a href="#">WhatsApp: (11) 99999-0000</a></li>
+                    <li><a href="#">contato@onconova.org.br</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 OncoNova Institute. Todos os direitos reservados.</span>
+            <span>Excelência Hospitalar & Pesquisa Médica</span>
+        </div>
+    </footer>
+
+</body>
+</html>
